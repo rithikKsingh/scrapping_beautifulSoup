@@ -96,3 +96,4 @@ soup=BeautifulSoup(html_doc,"html.parser")
 
 # results=soup.find_all(has_class_but_not_id)
 # print(results)
+
