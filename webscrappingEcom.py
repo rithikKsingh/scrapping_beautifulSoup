@@ -34,8 +34,15 @@ spans=soup.select("span.a-size-medium.a-color-base.a-text-normal")
 prices=soup.select("span.a-price")
 for span in spans:
     data["Title"].append(span.string)
+    print(span.string)
 
 for price in prices:
     if not "a-text-price" in price.get("class"):
         data["Price"].append(price.find("span").get_text())
+        print(price.find("span").get_text())
+        # if len(data["Price"])==len(data["Title"]):
+        #        break
 
+df=pd.DataFrame.from_dict(data)
+df.to_csv("data.csv",index=False)
+# print(f"Titles: {len(data['Title'])}, Prices: {len(data['Price'])}")
